@@ -1,0 +1,13 @@
+"""socket으로 외부 사이트 접속 후 접속된 정보를 바탕으로 IP 확인
+2-1보다 정확하게 내부 IP 확인"""
+
+import socket
+
+#소켓 연결
+in_addr = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+#구글에 접속, https의 기본 접속 포트는 443
+in_addr.connect(("www.google.co.kr",443))
+
+#연결된 소켓의 이름 출력
+print(in_addr.getsockname()[0])
